@@ -3,6 +3,7 @@ package main
 import (
   "fmt"
   "bytes"
+  "strings"
 )
 
 type rec string
@@ -64,15 +65,19 @@ func(str rec) rotOnWholeString() ([]byte,int){
 
 
 func main()  {
-  var str1 rec="hello"
+  var str1 rec="hello world"
+  var stre []string
+  stre=strings.Split(string(str1)," ")
 
-  str1.convertToBytes()
+  j:=  " "
+  var b1 bytes.Buffer
+  for strf := range stre{
 
-  var h []byte
-  var g int
-  h,g=str1.rotOnWholeString()
-  fmt.Println(h)
-  fmt.Println(string(h))
-  fmt.Println(g)
+    df,_:=rec(stre[strf]).rotOnWholeString()
 
+    b1.Write(df)
+    b1.Write([]byte(j))
+
+}
+  fmt.Println(string(b1.Next(len(str1))))
 }
